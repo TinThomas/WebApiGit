@@ -2,7 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Home page</h1>
+
+<input type="button"
+       value="Submit new weather data"
+       onclick="location.href='@Url.Action("Index", "WeatherForecast")'"/>
+
+<input type="button"
+       value="View existing weather data"
+       onclick="location.href='@Url.Action("Browse", "WeatherForecast")"/>

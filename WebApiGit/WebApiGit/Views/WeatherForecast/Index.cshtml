@@ -9,18 +9,22 @@
     <div>
         <label asp-for="TemperatureC"></label>
         <input asp-for="TemperatureC"/>
+        <span asp-validation-for="TemperatureC"></span>
     </div>
     <div>
         <label asp-for="Humidity"></label>
         <input asp-for="Humidity"/>
+        <span asp-validation-for="Humidity"></span>
     </div>
     <div>
         <label asp-for="Pressure"></label>
-        <input asp-for="Pressure"/>
+        <input asp-for="Pressure" />
+        <span asp-validation-for="Pressure"></span>
     </div>
     <div>
         <label asp-for="Summary"></label>
-        <input asp-for="Summary"/>
+        <input asp-for="Summary" />
+        <span asp-validation-for="Summary"></span>
     </div>
     <button type="submit">Submit</button>
 </form>
