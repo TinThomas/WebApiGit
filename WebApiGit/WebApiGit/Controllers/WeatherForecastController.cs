@@ -12,14 +12,14 @@ namespace WebApiGit.Controllers
     [Route("[Controller]")]
     public class WeatherForecastController : Controller
     {
-        [HttpGet]
+        [HttpGet("Index")]
         public IActionResult Index()
         {
             Debug.WriteLine("Entering index action");
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("Index")]
         public IActionResult Index(WeatherForecastModel model)
         {
             if (!ModelState.IsValid)

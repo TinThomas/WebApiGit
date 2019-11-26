@@ -6,3 +6,11 @@
 <h1>Browse weather data</h1>
 
 it gone rain
+
+<input type="button"
+       value="Return to main page"
+       onclick="location.href='@Url.Action("Index","Home")'" />
+
+<input type="button"
+       value="Submit new weather data"
+       onclick="location.href='@Url.Action("Index", "WeatherForecast")'" />
