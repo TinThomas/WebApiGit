@@ -12,6 +12,8 @@ namespace WebApiGit.Controllers
     [Route("[Controller]")]
     public class WeatherForecastController : Controller
     {
+         public static List<WeatherForecastModel> ForecastList = new List<WeatherForecastModel>();
+
         [HttpGet("Index")]
         public IActionResult Index()
         {
@@ -27,6 +29,8 @@ namespace WebApiGit.Controllers
                 return View(model);
             }
             Debug.WriteLine("Redirecting to success action");
+
+            ForecastList.Add(model);
             return RedirectToAction(nameof(Success));
         }
 

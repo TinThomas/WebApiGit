@@ -1,11 +1,16 @@
-﻿
+﻿@using WebApiGit.Controllers
+
 @{
     ViewData["Title"] = "Browse";
 }
 
 <h1>Browse weather data</h1>
 
-it gone rain
+    @foreach(var forecast in WeatherForecastController.ForecastList)
+    {
+        <div>@forecast.TemperatureC</div>
+    }
+
 
 <input type="button"
        value="Return to main page"
