@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApiGit.Models;
 
 
 namespace WebApiGit.Controllers
@@ -15,8 +16,16 @@ namespace WebApiGit.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(WeatherForecastModel model)
+        {
+            return RedirectToAction(nameof(Success));
+        }
 
-
+        public IActionResult Success()
+        {
+            return View();
+        }
 
     }
 }
