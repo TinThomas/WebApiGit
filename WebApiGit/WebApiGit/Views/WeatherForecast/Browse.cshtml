@@ -6,10 +6,14 @@
 
 <h1>Browse weather data</h1>
 
-    @foreach(var forecast in WeatherForecastController.ForecastList)
-    {
-        <div>@forecast.TemperatureC</div>
-    }
+@foreach (var forecast in WeatherForecastController.ForecastList)
+{
+    <div>Date: @forecast.Date</div>
+    <div>Temperature: @forecast.TemperatureC</div>
+    <div>Humidity: @forecast.Humidity</div>
+    <div>Pressure: @forecast.Pressure</div>
+    <div>Summary: @forecast.Summary</div>
+}
 
 
 <input type="button"

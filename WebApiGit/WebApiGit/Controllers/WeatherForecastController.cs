@@ -29,7 +29,7 @@ namespace WebApiGit.Controllers
                 return View(model);
             }
             Debug.WriteLine("Redirecting to success action");
-
+            model.Date = DateTime.Now;
             ForecastList.Add(model);
             return RedirectToAction(nameof(Success));
         }
