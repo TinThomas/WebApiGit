@@ -6,7 +6,7 @@
 
 <h1>Browse weather data</h1>
 
-@foreach (var forecast in WeatherForecastController.ForecastList)
+@foreach (var forecast in WeatherForecastController.Db.WeatherForecasts)
 {
     <div>Date: @forecast.Date</div>
     <div>Temperature: @forecast.TemperatureC</div>

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApiGit.Data;
 using WebApiGit.Models;
 
 
@@ -12,7 +13,7 @@ namespace WebApiGit.Controllers
     [Route("[Controller]")]
     public class WeatherForecastController : Controller
     {
-         public static List<WeatherForecastModel> ForecastList = new List<WeatherForecastModel>();
+        public static WeatherForecastContext Db = new WeatherForecastContext();
 
         [HttpGet("Index")]
         public IActionResult Index()
@@ -30,7 +31,8 @@ namespace WebApiGit.Controllers
             }
             Debug.WriteLine("Redirecting to success action");
             model.Date = DateTime.Now;
-            ForecastList.Add(model);
+            Db.Add(model);
+            Db.SaveChanges();
             return RedirectToAction(nameof(Success));
         }
 
