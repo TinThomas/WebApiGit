@@ -23,6 +23,7 @@ namespace WebApiGit.Models
         }
 
         [Required]
+        [Key]
         public DateTime Date { get; set; }
 
         [Required]
