@@ -32,7 +32,10 @@ namespace WebApiGit.Models
 
         [Required]
         [Display(Name = "Humidity")]
-        public int Humidity { get; set; }
+        public int Humidity
+        {
+            get; set;
+        }
 
         [Required]
         [Display(Name = "Pressure")]
