@@ -27,6 +27,18 @@ namespace WebApiGit.Models
         public DateTime Date { get; set; }
 
         [Required]
+        [Display(Name = "Location")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Latitude")]
+        public double Lat { get; set; }
+
+        [Required]
+        [Display(Name = "Longitude")]
+        public double Lon { get; set; }
+
+        [Required]
         [Display(Name = "Temperature in celsius")]
         public int TemperatureC { get; set; }
 

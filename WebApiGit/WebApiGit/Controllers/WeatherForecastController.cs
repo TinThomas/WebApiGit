@@ -62,6 +62,9 @@ namespace WebApiGit.Controllers
             new WeatherForecastModel()
             {
                 Date = DateTime.Now,
+                Name = "Maarslet",
+                Lat = 56.060059,
+                Lon = 10.158049,
                 TemperatureC = 20,
                 Pressure = 20,
                 Humidity = 20,
@@ -72,6 +75,9 @@ namespace WebApiGit.Controllers
                 new WeatherForecastModel()
                 {
                     Date = DateTime.Now,
+                    Name = "Katrinebjerg",
+                    Lat = 56.172535,
+                    Lon = 10.191472,
                     TemperatureC = 21,
                     Pressure = 21,
                     Humidity = 21,
