@@ -1,10 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.SignalR;
+using WebApiGit.Controllers;
+using WebApiGit.Hubs;
 
 namespace WebApiGit.Models
 {
     public class WeatherForecastModel
     {
+
         public enum SummaryEnum
         {
             Freezing,

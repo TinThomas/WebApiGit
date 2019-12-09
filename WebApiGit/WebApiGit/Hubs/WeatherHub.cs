@@ -11,9 +11,11 @@ namespace WebApiGit.Hubs
 {
     public class WeatherHub : Hub
     {
-        public async Task UpdateForecasts(WeatherForecastModel item)
+
+        public async Task<WeatherForecastModel> UpdateForecasts(WeatherForecastModel item)
         {
             await Clients.All.SendAsync("ReceiveUpdate", item);
+            return item;
         }
     }
 }

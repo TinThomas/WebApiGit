@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
+using Microsoft.AspNetCore.SignalR;
 using WebApiGit.Data;
 using WebApiGit.Hubs;
 using WebApiGit.Models;
@@ -13,7 +14,13 @@ namespace WebApiGit.Controllers
     public class WeatherForecastController : Controller
     {
         public static WeatherForecastContext Db = new WeatherForecastContext();
-        public WeatherHub Hub;
+
+        private readonly IHubContext<WeatherHub> _hubContext;
+
+        public WeatherForecastController(IHubContext<WeatherHub> hubContext)
+        {
+            _hubContext = hubContext;
+        }
 
         [HttpGet("Subscribe")]
         public IActionResult Subscribe()
@@ -39,7 +46,7 @@ namespace WebApiGit.Controllers
             model.Date = DateTime.Now;
             Db.Add(model);
             Db.SaveChanges();
-            await Hub.UpdateForecasts(model);
+            await _hubContext.Clients.All.SendAsync("ReceiveUpdate", model);
             return Ok(model);
         }
 
