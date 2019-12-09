@@ -1,5 +1,3 @@
-using System;
-
 namespace WebApiGit.Models
 {
     public class ErrorViewModel

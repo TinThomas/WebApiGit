@@ -1,0 +1,32 @@
+﻿@using Microsoft.CodeAnalysis
+@using WebApiGit.Controllers;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Subscribe</title>
+</head>
+<body>
+
+<div>
+    <ul id ="forecastList"></ul>
+</div>
+
+@foreach (var forecast in WeatherForecastController.Db.WeatherForecasts)
+{
+    <div>Date: @forecast.Date</div>
+    <div>Temperature: @forecast.TemperatureC</div>
+    <div>Humidity: @forecast.Humidity</div>
+    <div>Pressure: @forecast.Pressure</div>
+    <div>Summary: @forecast.Summary</div>
+    <div>------------------------------------------------</div>
+}
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/Weather.js"></script>
+</body>
+</html>

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
 using WebApiGit.Data;
+using WebApiGit.Hubs;
 using WebApiGit.Models;
 
 
@@ -16,6 +13,13 @@ namespace WebApiGit.Controllers
     public class WeatherForecastController : Controller
     {
         public static WeatherForecastContext Db = new WeatherForecastContext();
+        public WeatherHub Hub;
+
+        [HttpGet("Subscribe")]
+        public IActionResult Subscribe()
+        {
+            return View();
+        }
 
         [HttpGet("Index")]
         public IActionResult Index()
@@ -25,7 +29,7 @@ namespace WebApiGit.Controllers
         }
 
         [HttpPost("Upload")]
-        public IActionResult Index([FromBody] WeatherForecastModel model)
+        public async System.Threading.Tasks.Task<IActionResult> IndexAsync([FromBody] WeatherForecastModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -35,6 +39,7 @@ namespace WebApiGit.Controllers
             model.Date = DateTime.Now;
             Db.Add(model);
             Db.SaveChanges();
+            await Hub.UpdateForecasts(model);
             return Ok(model);
         }
 
@@ -46,7 +51,7 @@ namespace WebApiGit.Controllers
             {
                 json += JsonConvert.SerializeObject(forecast);
             }
-            
+
             return Ok(json);
         }
 

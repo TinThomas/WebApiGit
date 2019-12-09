@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApiGit.Models;
 
 namespace WebApiGit.Data
 {
     public class WeatherForecastContext : DbContext
     {
-            public DbSet<WeatherForecastModel> WeatherForecasts { get; set; }
+        public DbSet<WeatherForecastModel> WeatherForecasts { get; set; }
 
-            protected override void OnConfiguring(DbContextOptionsBuilder options)
-                => options.UseSqlServer(
-                    @"Data Source=THOMASPC\TEW_SQLEXPRESS;Initial Catalog=WeatherData;Integrated Security=True;Pooling=False");
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlServer(
+                @"Data Source=THOMASPC\TEW_SQLEXPRESS;Initial Catalog=WeatherData;Integrated Security=True;Pooling=False");
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApiGit.Models
 {
@@ -53,7 +50,7 @@ namespace WebApiGit.Models
         [Display(Name = "Pressure")]
         public int Pressure { get; set; }
 
-        public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         [Required]
         [Display(Name = "Summary")]
