@@ -14,7 +14,12 @@ namespace WebApiGit.Hubs
 
         public async Task<WeatherForecastModel> UpdateForecasts(WeatherForecastModel item)
         {
-            await Clients.All.SendAsync("ReceiveUpdate", item);
+            await Clients.All.SendAsync("ReceiveUpdate",
+                item.Date,
+                item.TemperatureC,
+                item.Humidity,
+                item.Pressure,
+                item.Summary);
             return item;
         }
     }

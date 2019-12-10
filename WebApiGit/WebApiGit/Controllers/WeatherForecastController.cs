@@ -46,7 +46,14 @@ namespace WebApiGit.Controllers
             model.Date = DateTime.Now;
             Db.Add(model);
             Db.SaveChanges();
-            await _hubContext.Clients.All.SendAsync("ReceiveUpdate", model);
+
+            await _hubContext.Clients.All.SendAsync("ReceiveUpdate",
+                model.Date,
+                model.TemperatureC,
+                model.Humidity,
+                model.Pressure,
+                model.Summary);
+
             return Ok(model);
         }
 

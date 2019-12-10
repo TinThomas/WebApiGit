@@ -17,7 +17,7 @@
     <ul id ="forecastList"></ul>
 </div>
 
-@foreach (var forecast in WeatherForecastController.Db.WeatherForecasts)
+@foreach (var forecast in WeatherForecastController.Db.WeatherForecasts.ToList())
 {
     <div>Date: @forecast.Date</div>
     <div>Temperature: @forecast.TemperatureC</div>
